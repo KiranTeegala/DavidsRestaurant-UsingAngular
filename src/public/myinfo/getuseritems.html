@@ -1,0 +1,17 @@
+
+	<div style="font-size: 30px">
+	user name is: {{$ctrl.user.username}}<br>
+	user email is: {{$ctrl.user.email}}<br>
+	user phone is: {{$ctrl.user.phone}}<br>
+	your favorite menu item: {{$ctrl.user.shortname}} category<br>
+	<br>
+
+	<img src="/images/menu/{{$ctrl.user.imagecode}}/{{$ctrl.user.imagecode}}.jpg" style="width:304px;height:228px;" /><br>
+	Title: {{$ctrl.item.name}}<br>
+	Description: {{$ctrl.item.description}}<br>
+	</div>
+
+	<div>
+	Not registered yet!
+		<a ui-sref="public.signup">Click here to Sign Up</a>
+	</div>

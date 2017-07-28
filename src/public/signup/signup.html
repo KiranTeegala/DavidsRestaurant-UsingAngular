@@ -1,0 +1,64 @@
+
+<div>
+<h1>Please Sign Up</h1>
+  <fieldset>
+      <legend>Registration</legend>
+      <form name='signupform' novalidate>
+        <div>ENTER USERNAME</div>
+        <input type="text" name="username" placeholder="Pick a username"
+          ng-model="reg.user.username"
+          required
+          minlength="4"
+          ng-maxlength="10">
+          {{ reg.user.username }}
+          <span
+            ng-if="(signupform.username.$error.minlength || signupform.username.$error.required) && signupform.username.$touched">
+            Username must be at least 4 characters long
+          </span>
+          <span ng-if="signupform.username.$error.maxlength && signupform.username.$touched">
+            Username must not be longer than 10 characters
+          </span>
+          <br>
+          <div>ENTER EMAIL</div>
+        <input type="email" name="email" placeholder="Email"
+          ng-model="reg.user.email"
+          required>
+          <span ng-if="signupform.email.$invalid && signupform.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+          <div>ENTER PHONE NUMBER</div>
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="reg.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="signupform.phone.$invalid && signupform.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+          <div>SPECIFY THE MENU NUMBER</div>
+        <input type="text" name="shortname" placeholder="specify the menu number"
+        ng-model="reg.user.shortname"
+        required>
+        <span ng-if="reg.Itemvalidationmessage">
+            {{reg.Itemvalidationmessage}}
+          </span>
+          <br>
+        <button
+          ng-disabled="signupform.$invalid"
+          ng-click="reg.getItemValidated(reg.user.shortname);"
+          >
+            Submit
+          </button>
+
+          <!-- <div style="margin-top: 10px;">
+            Form valid? {{ signupform.$valid }}
+          </div> -->
+      </form>
+    </fieldset>
+
+    <div id="info">
+      {{ reg.message}}<br>
+      
+    </div>
+
+</div>
